@@ -15,17 +15,28 @@ public class Monumento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
+    @Column(nullable = false) //DICHO ATRIBUTO NO PUEDE SER NULO
     private String nombrePais;
+
+    @Column(nullable = false)
     private String nombreCiudad;
+
+    @Column(nullable = false)
     private String latitud;
+
+    @Column(nullable = false)
     private String longitud;
+
+    @Column(nullable = false)
     private String nombreMomunumento;
 
     @Lob
+    @Column(nullable = false)
     private String descripcion;
 
     @Lob
+    @Column(nullable = false)
     private String foto;
 }

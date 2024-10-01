@@ -20,17 +20,17 @@ public class MonumentoService {
     }
 
     // ENCONTRAR MONUMENTO POR ID - FindById()
-    public Optional<Monumento> obtenerMonumentoPorId (int id) {
+    public Optional<Monumento> obtenerMonumentoPorId (long id) {
         return repositorio.findById(id);
     }
 
-    // ACTUALIZAR MONUMENTO - Save()
+    // GUARDA O ACTUALIZA MONUMENTO - Save()
     public void actualizarMonumento (Monumento monumento) {
         repositorio.save(monumento);
     }
 
     // BORRAR MONUMENTO - DeleteById()
-    public void borrarMonumentoPorId (int id) {
+    public void borrarMonumentoPorId (long id) {
         repositorio.deleteById(id);
     }
 
