@@ -5,4 +5,4 @@ INSERT INTO monumento (id, nombre_pais, nombre_ciudad, latitud, longitud, nombre
 INSERT INTO monumento (id, nombre_pais, nombre_ciudad, latitud, longitud, nombre_monumento, descripcion, foto) VALUES (3, 'México', 'Ciudad de México', '19°25′42.49″ N', '99°7′39.58″ 0', 'Ángel de la Independencia', 'La estatua de bronce de un león gigante con un niño de Rivas Mercado, simboliza al pueblo mexicano “fuerte en la guerra y dócil en la paz.”', 'https://i0.wp.com/historico.alcaldiacuauhtemoc.mx/wp-content/uploads/2020/01/cuauchtemocAngel-de-la-Independencia-destacada.jpg?fit=528%2C453&ssl=1');
 
 
-ALTER SEQUENCE monumento_seq RESTART WITH 51;
+ALTER SEQUENCE monumento_seq RESTART WITH 53;

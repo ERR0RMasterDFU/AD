@@ -32,12 +32,12 @@ public class MonumentoService {
     // ACTUALIZAR MONUMENTO - Save()
     public Monumento actualizarMonumento (Monumento monumento, Long id) {
 
-        Monumento mon = null;
+        //Monumento mon = null;
         Optional<Monumento> monumentoAEditar = repositorio.findById(id);
 
         if(monumentoAEditar.isEmpty()) {
-            mon = monumentoAEditar.get();
-            return repositorio.save(monumento);
+            //mon = monumentoAEditar.get();
+            return repositorio.save(monumentoAEditar.get());
         }else {
             return null;
         }
