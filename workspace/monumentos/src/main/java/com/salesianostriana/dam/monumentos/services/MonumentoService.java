@@ -19,14 +19,28 @@ public class MonumentoService {
         return repositorio.findAll();
     }
 
-    // ENCONTRAR MONUMENTO POR ID - FindById()
+    // OBTENER MONUMENTO POR ID - FindById()
     public Optional<Monumento> obtenerMonumentoPorId (long id) {
         return repositorio.findById(id);
     }
 
-    // GUARDA O ACTUALIZA MONUMENTO - Save()
-    public void actualizarMonumento (Monumento monumento) {
-        repositorio.save(monumento);
+    // CREAR MONUMENTO - Save()
+    public Monumento crearMonumento (Monumento monumento) {
+        return repositorio.save(monumento);
+    }
+
+    // ACTUALIZAR MONUMENTO - Save()
+    public Monumento actualizarMonumento (Monumento monumento, Long id) {
+
+        Monumento mon = null;
+        Optional<Monumento> monumentoAEditar = repositorio.findById(id);
+
+        if(monumentoAEditar.isEmpty()) {
+            mon = monumentoAEditar.get();
+            return repositorio.save(monumento);
+        }else {
+            return null;
+        }
     }
 
     // BORRAR MONUMENTO - DeleteById()

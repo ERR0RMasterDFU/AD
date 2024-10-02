@@ -26,23 +26,34 @@ public class MonumentoController {
         return new ResponseEntity<>(service.obtenerListaMonumentos(), HttpStatus.OK);
     }
 
-    @PostMapping
-    //EDITAR MONUMENTO
-    public void editarMonumento (Monumento monumento) {
-
-        service.actualizarMonumento(monumento);
-    }
-
-    @GetMapping("buscar/{id}")
+    @GetMapping("/{id}")
     //BUSCAR MONUMENTO POR ID
     public ResponseEntity<Optional<Monumento>> obtenerMonumentoPorId (@PathVariable("id") long id) {
-        return new ResponseEntity<>(service.obtenerMonumentoPorId(id), HttpStatus.OK);
+        if(service.obtenerMonumentoPorId(id) != null) {
+            return new ResponseEntity<>(service.obtenerMonumentoPorId(id), HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/create")
+    // CREAR UN MONUMENTO
+    public ResponseEntity<Monumento> crearMonumento (@RequestBody Monumento monumento) {
+        return new ResponseEntity<>(service.crearMonumento(monumento), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/edit/{id}")
+    //EDITAR MONUMENTO
+    public ResponseEntity<Monumento> editarMonumento (@PathVariable("id") long id, @RequestBody Monumento monumento) {
+        return new ResponseEntity<>(service.actualizarMonumento(monumento,id), HttpStatus.OK);
+    }
+
+
+    @DeleteMapping("/delete/{id}")
     //BORRAR MONUMENTO POR ID
     public ResponseEntity<Void> borrarMonumento (@PathVariable("id") long id) {
-        new ResponseEntity<>(service.borrarMonumentoPorId(id), HttpStatus.ACCEPTED);
+        service.borrarMonumentoPorId(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

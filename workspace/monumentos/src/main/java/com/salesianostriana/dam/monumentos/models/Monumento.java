@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Monumento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(nullable = false) //DICHO ATRIBUTO NO PUEDE SER NULO
@@ -30,7 +30,7 @@ public class Monumento {
     private String longitud;
 
     @Column(nullable = false)
-    private String nombreMomunumento;
+    private String nombreMonumento;
 
     @Lob
     @Column(nullable = false)
