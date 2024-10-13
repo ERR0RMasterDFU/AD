@@ -1,14 +1,11 @@
 package com.salesianostriana.dam.ejerciciodto.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -32,4 +29,10 @@ public class Alumno {
     private String email;
 
     private Date fechaNac;
+
+    @OneToMany(mappedBy="alumno", fetch = FetchType.EAGER)
+    @Builder.Default
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<MatriculaNotas> matriculaNotas = new ArrayList<>();
 }

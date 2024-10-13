@@ -25,12 +25,6 @@ public class Curso {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @Builder.Default
-    @OneToMany(
-            mappedBy="curso",
-            fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
     private List<Asignatura> asignaturas = new ArrayList<>();
 
 
