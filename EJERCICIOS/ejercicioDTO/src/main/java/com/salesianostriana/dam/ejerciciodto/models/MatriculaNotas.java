@@ -20,7 +20,6 @@ public class MatriculaNotas {
     }
 
     @Id
-    @GeneratedValue
     private int anyo;
 
     private double nota;
